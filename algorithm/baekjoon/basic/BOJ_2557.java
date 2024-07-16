@@ -1,4 +1,4 @@
-package basic;
+package baekjoon.basic;
 
 public class BOJ_2557 {
 

@@ -1,31 +1,30 @@
-package basic;
+package baekjoon.basic;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class BOJ_2587 {
+public class BOJ_2562 {
     public static void main(String[] args) throws IOException {
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int sum = 0;
-        int[] arr = new int[5];
+        int res = 0;
+        int pos = 0;
 
-        for (int i = 0; i < 5; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st;
 
+        for (int i = 0; i < 9; i++) {
+            st = new StringTokenizer(br.readLine());
             int n = Integer.parseInt(st.nextToken());
 
-            sum += n;
-            arr[i] = n;
+            if (n > res) {
+                res = n;
+                pos = i + 1;
+            }
         }
-
-        int res = sum / 5;
-        Arrays.sort(arr);
-
         System.out.println(res);
-        System.out.println(arr[2]);
+        System.out.println(pos);
     }
 }
