@@ -27,8 +27,11 @@ public class BOJ_10804 {
             }
         }
 
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i < 21; i++) {
-            System.out.print(arr[i] + " ");
+            sb.append(arr[i]).append(" ");
         }
+
+        System.out.println(sb);
     }
 }
