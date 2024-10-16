@@ -1,4 +1,4 @@
-package swea.lv2;
+package swea.lv2.retry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
