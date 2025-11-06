@@ -1,0 +1,4 @@
+SELECT ANIMAL_TYPE, 
+if(NAME is null, 'No name', Name) as NAME,
+SEX_UPON_INTAKE
+from ANIMAL_INS
