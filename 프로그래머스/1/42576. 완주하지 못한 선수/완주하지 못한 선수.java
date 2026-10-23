@@ -2,17 +2,38 @@ import java.util.*;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
+       
+        String answer = "";
+        Map<String, Integer> map = new HashMap<>();
         
-        Arrays.sort(participant);
-        Arrays.sort(completion);
-        
-        int i = 0;
-        for(i = 0; i < completion.length; i++) {
-            if(!participant[i].equals(completion[i])) {
-                break;
+        //참여자 해시맵 생성
+        for(int i = 0; i < participant.length; i++) {
+            String name = participant[i];
+            
+            if(map.containsKey(name)) {
+                map.put(name, map.get(name) + 1);
+            }
+            
+            else {
+                map.put(name, 1);
             }
         }
         
-        return participant[i];
+        //완주자 검증
+        for(int j = 0; j < completion.length; j++) {
+            String name = completion[j];             
+            
+            map.put(name, map.get(name) - 1);
+        }
+        
+        //완주 하지 못한 참여자 검증
+        for(int i = 0; i < participant.length; i++) {
+            String name = participant[i];
+            
+            if(map.get(name) > 0) { 
+                answer = name;
+            }
+        }
+        return answer;
     }
 }
