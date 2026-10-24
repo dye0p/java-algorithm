@@ -1,27 +1,24 @@
 import java.util.*;
 
 class Solution {
-    
-    public int[] solution(int[] array, int[][] commands) {
+    public List<Integer> solution(int[] array, int[][] commands) {
         
-        //commands에 들어온 배열의 값을 하나씩 돌면서 수행
+        List<Integer> answer = new ArrayList<>();
         
-        int[] answer = new int[commands.length];
         for(int i = 0; i < commands.length; i++) {
             int a = commands[i][0]; 
-            int b = commands[i][1];
-            int k = commands[i][2];
+            int b = commands[i][1]; 
+            int c = commands[i][2]; 
             
-            List<Integer> list = new ArrayList<>();
-            for(int j = a - 1; j < b; j++) {
-                list.add(array[j]);
-            }
+            //인덱스 a 부터 b 전까지 자르기
+            int[] arrays = Arrays.copyOfRange(array, a-1, b);
+            Arrays.sort(arrays); 
             
-            Collections.sort(list);
+            int res = arrays[c-1];
             
-            answer[i] = list.get(k - 1);
+            answer.add(res);
         }
-        
         return answer;
     }
 }
+
